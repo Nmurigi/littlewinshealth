@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Diabetes Increasing in the US? What the Newest Data Shows — Little Wins Health</title>
+<style>
+  :root{
+    --green:#2E5941;--green-deep:#1E3C2C;--cream:#FBFAF5;--apricot:#F2A65A;
+    --plum:#5B3A54;--ink:#26302B;--mute:#6B7A72;--line:#E4E6DF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink);line-height:1.75;}
+  .ui{font-family:'Segoe UI',system-ui,sans-serif;}
+
+  nav{background:var(--cream);border-bottom:1px solid var(--line);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:40;}
+  .brand{font-size:1.35rem;font-weight:700;color:var(--green-deep);text-decoration:none;font-family:Georgia,serif;}
+  .brand span{color:var(--apricot);}
+  .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap;}
+  .nav-links a{text-decoration:none;color:var(--ink);font-size:.9rem;}
+  .nav-links a:hover{color:var(--green);text-decoration:underline;}
+  .nav-links a.active{color:var(--green);font-weight:700;border-bottom:2px solid var(--apricot);padding-bottom:2px;}
+
+  /* HERO IMAGE — illustrated morning table scene in CSS/SVG */
+  .hero-img{height:300px;background:linear-gradient(180deg,#DCE8DF 0%,#EFF3EA 70%,var(--cream) 100%);position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;}
+  .hero-img svg{display:block;width:min(720px,92%);height:auto;}
+
+  article{max-width:720px;margin:0 auto;padding:40px 5% 20px;}
+  .cat-label{font-family:'Segoe UI',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--apricot);}
+  h1{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--green-deep);line-height:1.2;margin:10px 0 14px;}
+  .meta{font-family:'Segoe UI',sans-serif;font-size:.82rem;color:var(--mute);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--line);}
+  h2{color:var(--green-deep);font-size:1.45rem;margin:40px 0 14px;}
+  p{margin-bottom:18px;font-size:1.03rem;}
+  ul,ol{margin:0 0 18px 24px;}
+  li{margin-bottom:8px;font-size:1.01rem;}
+  strong{color:var(--green-deep);}
+  .lead-answer{background:#EDF3EE;border-left:4px solid var(--green);padding:18px 20px;border-radius:0 10px 10px 0;margin-bottom:22px;}
+  .note{font-family:'Segoe UI',sans-serif;font-size:.85rem;color:var(--mute);font-style:italic;}
+
+  /* CHARTS */
+  figure{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:26px 0;}
+  figure figcaption{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:var(--mute);margin-top:12px;text-align:center;}
+  .chart-title{font-family:'Segoe UI',sans-serif;font-weight:700;font-size:.95rem;color:var(--green-deep);margin-bottom:14px;}
+  .chart-svg{width:100%;height:auto;display:block;}
+  .bar-row{display:grid;grid-template-columns:110px 1fr 52px;align-items:center;gap:10px;margin-bottom:10px;font-family:'Segoe UI',sans-serif;font-size:.85rem;}
+  .bar-track{background:#F0F2EC;border-radius:999px;height:18px;position:relative;}
+  .bar-fill{height:100%;border-radius:999px;background:var(--plum);}
+  .bar-row.us .bar-fill{background:var(--apricot);}
+  .bar-val{font-weight:700;color:var(--green-deep);text-align:right;}
+
+  .callout{background:#FBF3E7;border:1px solid #EFD9B8;border-radius:12px;padding:18px 20px;margin:22px 0;}
+  .callout p{margin-bottom:0;font-size:.98rem;}
+
+  .disclaim{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:var(--mute);border-top:1px solid var(--line);margin-top:36px;padding-top:20px;}
+
+  /* NEWSLETTER */
+  .news{background:var(--green-deep);color:#fff;margin-top:48px;}
+  .news .inner{max-width:720px;margin:0 auto;padding:44px 5%;}
+  .news h2{color:#fff;margin-top:0;}
+  .news p{color:#BFD2C6;font-size:.95rem;}
+  .news form{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+  .news input{flex:1;min-width:200px;padding:13px 16px;border-radius:999px;border:none;font-size:.95rem;font-family:'Segoe UI',sans-serif;}
+  .news input:focus{outline:3px solid var(--apricot);}
+  .news button{background:var(--apricot);color:var(--green-deep);border:none;padding:13px 26px;border-radius:999px;font-weight:700;font-family:'Segoe UI',sans-serif;cursor:pointer;}
+  .news button:hover{background:#E09540;}
+  footer{background:#fff;border-top:1px solid var(--line);padding:22px 5%;text-align:center;font-family:'Segoe UI',sans-serif;font-size:.8rem;color:var(--mute);}
+</style>
+</head>
+<body>
+
+<nav class="ui">
+  <a class="brand" href="index.html">Little Wins<span> Health</span></a>
+  <ul class="nav-links">
+    <li><a class="active" href="#">Diabetes</a></li>
+    <li><a href="#">Heart Health</a></li>
+    <li><a href="#">Blood Pressure</a></li>
+    <li><a href="#">Joint Health</a></li>
+    <li><a href="#">Prevention</a></li>
+  </ul>
+</nav>
+
+<!-- HERO: illustrated breakfast-table scene -->
+<div class="hero-img" role="img" aria-label="Illustration of a breakfast table with a balanced plate, a glass of water, and a morning walk path through a park">
+  <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- sun -->
+    <circle cx="600" cy="60" r="34" fill="#F2A65A" opacity=".85"/>
+    <!-- rolling park hills -->
+    <path d="M0 190 Q180 130 360 175 T720 165 V260 H0 Z" fill="#8FAE97"/>
+    <path d="M0 215 Q200 170 420 205 T720 200 V260 H0 Z" fill="#5F8468"/>
+    <!-- walking path -->
+    <path d="M80 260 Q300 200 640 232" stroke="#FBFAF5" stroke-width="14" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M80 260 Q300 200 640 232" stroke="#E4E6DF" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="2 26"/>
+    <!-- table -->
+    <rect x="120" y="212" width="230" height="12" rx="6" fill="#5B3A54"/>
+    <rect x="140" y="224" width="12" height="36" fill="#5B3A54"/>
+    <rect x="318" y="224" width="12" height="36" fill="#5B3A54"/>
+    <!-- balanced plate -->
+    <circle cx="235" cy="190" r="46" fill="#fff" stroke="#E4E6DF" stroke-width="3"/>
+    <path d="M235 190 L235 144 A46 46 0 0 1 235 236 Z" fill="#2E5941" transform="rotate(180 235 190)"/>
+    <path d="M235 190 L235 144 A46 46 0 0 1 281 190 Z" fill="#F2A65A"/>
+    <path d="M235 190 L281 190 A46 46 0 0 1 235 236 Z" fill="#5B3A54"/>
+    <!-- glass of water -->
+    <path d="M310 168 L322 212 L346 212 L358 168 Z" fill="#CFE3EA" stroke="#9DBCC8" stroke-width="2"/>
+    <!-- two walkers on the path -->
+    <g transform="translate(470 208)">
+      <circle cx="0" cy="-26" r="8" fill="#26302B"/>
+      <path d="M0 -18 L0 4 M0 -12 L-10 -2 M0 -12 L10 -4 M0 4 L-8 20 M0 4 L8 20" stroke="#26302B" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+    <g transform="translate(508 214) scale(.85)">
+      <circle cx="0" cy="-26" r="8" fill="#3E5748"/>
+      <path d="M0 -18 L0 4 M0 -12 L-10 -4 M0 -12 L10 -2 M0 4 L-8 20 M0 4 L8 20" stroke="#3E5748" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+  </svg>
+</div>
+
+<article>
+  <span class="cat-label">Diabetes · Understanding the basics</span>
+  <h1>Is Diabetes Increasing in the US? What the Newest Data Shows — and What It Means If You've Just Been Diagnosed</h1>
+  <p class="meta ui">Little Wins Health · Updated July 2026 · 6 min read · <em>Educational content only — always talk to your doctor about your own health.</em></p>
+
+  <div class="lead-answer">
+    <p style="margin-bottom:0"><strong>Yes — diabetes is increasing in the US.</strong> In 2024, 12.7% of American adults reported having diabetes, up from 11.2% in 2020. That's roughly a 12% rise in just five years, according to CDC survey data compiled by PopHIVE at the Yale School of Public Health.</p>
+  </div>
+
+  <p>If you or someone you love was just diagnosed, that number means something important: <strong>you are far from alone.</strong> About 1 in 8 adults in this country is living with the same condition — going to work, raising kids, cooking dinner, and figuring it out one day at a time. This article walks through what the data shows, and then gets to what matters most: what to do next.</p>
+
+  <h2>What the numbers show</h2>
+  <p>Here's the picture in plain terms:</p>
+  <ul>
+    <li><strong>12.7% of US adults had diabetes in 2024</strong> — up from 11.2% in 2020 (CDC BRFSS data via PopHIVE, Yale School of Public Health)</li>
+    <li>The rise has been steady, year after year — this isn't a blip</li>
+    <li>Among Medicare beneficiaries (mostly people 65 and older), about <strong>26% have diabetes</strong> — so if you're older, the odds that people around you understand what you're going through are even higher</li>
+  </ul>
+
+  <figure>
+    <div class="chart-title">US adults with diabetes, 2020–2024 (% of adults)</div>
+    <svg class="chart-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart showing diabetes prevalence rising from 11.25 percent in 2020 to 12.65 percent in 2024">
+      <!-- gridlines: y from 11.0 (y=260) to 13.0 (y=30): 115px per 1% -->
+      <g stroke="#EDEFE8" stroke-width="1">
+        <line x1="60" y1="260" x2="620" y2="260"/><line x1="60" y1="202.5" x2="620" y2="202.5"/>
+        <line x1="60" y1="145" x2="620" y2="145"/><line x1="60" y1="87.5" x2="620" y2="87.5"/>
+        <line x1="60" y1="30" x2="620" y2="30"/>
+      </g>
+      <g font-family="Segoe UI,sans-serif" font-size="12" fill="#6B7A72">
+        <text x="52" y="264" text-anchor="end">11.0</text><text x="52" y="206" text-anchor="end">11.5</text>
+        <text x="52" y="149" text-anchor="end">12.0</text><text x="52" y="91" text-anchor="end">12.5</text>
+        <text x="52" y="34" text-anchor="end">13.0</text>
+        <text x="90" y="284">2020</text><text x="222" y="284">2021</text><text x="354" y="284">2022</text><text x="486" y="284">2023</text><text x="600" y="284">2024</text>
+      </g>
+      <!-- points: 2020:11.25→y=231.3, 2021:11.51→y=201.3, 2022:12.14→y=129, 2023:12.13→y=130, 2024:12.65→y=70.3 ; x:100,232,364,496,610 -->
+      <polyline points="100,231 232,201 364,129 496,130 610,70" fill="none" stroke="#2E5941" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <g fill="#2E5941">
+        <circle cx="100" cy="231" r="6"/><circle cx="232" cy="201" r="6"/><circle cx="364" cy="129" r="6"/><circle cx="496" cy="130" r="6"/>
+      </g>
+      <circle cx="610" cy="70" r="8" fill="#F2A65A" stroke="#2E5941" stroke-width="3"/>
+      <g font-family="Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#1E3C2C">
+        <text x="100" y="216" text-anchor="middle">11.2</text>
+        <text x="364" y="114" text-anchor="middle">12.1</text>
+        <text x="606" y="52" text-anchor="middle">12.7</text>
+      </g>
+    </svg>
+    <figcaption>Self-reported diabetes among US adults. Data: CDC BRFSS via PopHIVE, Yale School of Public Health.</figcaption>
+  </figure>
+
+  <h2>Why is diabetes rising?</h2>
+  <p>There's no single villain. A few things are happening at once:</p>
+  <ul>
+    <li><strong>We're living longer.</strong> Type 2 diabetes becomes more common with age, so an aging country means more cases.</li>
+    <li><strong>Weight and inactivity.</strong> More of us carry extra weight and move less than our bodies were built for — the two biggest drivers of type 2 diabetes.</li>
+    <li><strong>We're also finding it more.</strong> Better screening means more people learn they have diabetes instead of living with it undiagnosed. That part is actually good news — you can't manage what you don't know about.</li>
+  </ul>
+  <p>None of this is about blame. Diabetes has genetic, environmental, and economic roots. A diagnosis says nothing about your character.</p>
+
+  <h2>Where you live matters</h2>
+  <p>Diabetes doesn't hit every place equally. The highest rates in 2024 were well above the national median of 12.4% (CDC BRFSS via PopHIVE):</p>
+
+  <figure>
+    <div class="chart-title">Highest diabetes rates by state/territory, 2024 (% of adults)</div>
+    <div class="bar-row"><span>Virgin Islands</span><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><span class="bar-val">19.1%</span></div>
+    <div class="bar-row"><span>Puerto Rico</span><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div><span class="bar-val">18.2%</span></div>
+    <div class="bar-row"><span>West Virginia</span><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="bar-val">18.1%</span></div>
+    <div class="bar-row"><span>Kentucky</span><div class="bar-track"><div class="bar-fill" style="width:83%"></div></div><span class="bar-val">16.7%</span></div>
+    <div class="bar-row"><span>Louisiana</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="bar-val">16.0%</span></div>
+    <div class="bar-row us"><span>US median</span><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span class="bar-val">12.4%</span></div>
+    <figcaption>Data: CDC BRFSS via PopHIVE, Yale School of Public Health.</figcaption>
+  </figure>
+
+  <p>Why does this matter to you? Because where you live shapes access to fresh food, safe places to walk, and specialists. If you're in a high-rate area, your community likely has more support programs than you'd expect — diabetes education classes, community health workers, and support groups. Ask your doctor's office what exists locally; you may be surprised.</p>
+
+  <h2>When to get screened</h2>
+  <p>If you're reading this because someone you love was diagnosed, you might be wondering about yourself. Good instinct — type 2 diabetes runs in families.</p>
+  <p>The American Diabetes Association recommends screening for all adults starting at age 35, and earlier if you're overweight with other risk factors like family history or high blood pressure. Screening is a simple blood test (often an A1C test) at a routine visit.</p>
+  <div class="callout">
+    <p>One number worth knowing: tens of millions of Americans have <strong>prediabetes</strong> — blood sugar that's elevated but not yet diabetes — and most don't know it. Caught early, prediabetes can often be turned around. If it's been a while since your last check-up, this is your nudge.</p>
+  </div>
+
+  <h2>You've just been diagnosed. Now what?</h2>
+  <p>Take a breath. The weeks after a diagnosis can feel like drinking from a firehose — new words, new numbers, new rules. You do not have to change everything today. Here's a calm starting point:</p>
+  <p><strong>Ask your doctor these four questions:</strong></p>
+  <ol>
+    <li>What's my A1C now, and what are we aiming for?</li>
+    <li>Do I need medication, or are we starting with lifestyle changes?</li>
+    <li>How often should I check my blood sugar, if at all?</li>
+    <li>Can you refer me to a diabetes educator or nutrition counselor? (Many insurance plans cover this — it's one of the most underused benefits.)</li>
+  </ol>
+  <p><strong>Then pick ONE habit to start with — not five:</strong></p>
+  <ul>
+    <li><strong>Try the plate method.</strong> No counting, no math: fill half your plate with non-starchy vegetables, a quarter with lean protein, a quarter with carbs. That's it.</li>
+    <li><strong>Or take a 10-minute walk after your biggest meal.</strong> Moving after eating helps your muscles use the sugar from your food.</li>
+  </ul>
+  <p>That's the whole philosophy here: you don't have to be perfect. You get better every day when you do one small thing — and small things add up to real numbers on your next lab test.</p>
+
+  <h2>What others living with diabetes are doing</h2>
+  <p>You're joining a community of millions, and it helps to know what's working for them:</p>
+  <ul>
+    <li><strong>Peer support.</strong> Research on diabetes online communities has found that people who take part in them score higher on self-care measures than those who don't. Whether it's a Facebook group, a subreddit, or an in-person class, hearing "me too" from someone a year ahead of you is powerful.</li>
+    <li><strong>Simple tracking.</strong> Many people keep a low-effort log — blood sugar readings, meals, walks — not to judge themselves, but to spot patterns to discuss with their doctor.</li>
+    <li><strong>Meal-prep routines.</strong> Cooking a few diabetes-friendly staples on Sunday removes daily decision fatigue, which is half the battle.</li>
+    <li><strong>Bringing family in.</strong> People do better when the household eats the same healthy meals rather than the person with diabetes eating "special food" alone. If you're the loved one reading this: joining in is one of the kindest things you can do.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="ui" style="font-size:.9rem">
+    <li>CDC Behavioral Risk Factor Surveillance System (BRFSS) data, obtained via PopHIVE, Yale School of Public Health</li>
+    <li>Centers for Disease Control and Prevention — cdc.gov/diabetes</li>
+    <li>American Diabetes Association, Standards of Care — diabetes.org</li>
+  </ul>
+
+  <p class="disclaim"><strong>Medical disclaimer:</strong> This article is for general education only. It is not medical advice and is not a substitute for diagnosis or treatment by a qualified clinician. Always consult your doctor before changing your diet, exercise, medication, or monitoring routine.</p>
+</article>
+
+<div class="news">
+  <div class="inner">
+    <h2>One Little Win</h2>
+    <p>One email a week: a simple habit to try, a recipe, and one thing worth asking your doctor about. Free, and you can leave anytime.</p>
+    <form class="ui" onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:#fff;font-weight:700\'>You\'re in! Check your inbox to confirm. 🎉</p>';">
+      <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+      <button type="submit">Join free</button>
+    </form>
+  </div>
+</div>
+
+<footer>© 2026 Little Wins Health · About · Editorial policy · Contact · Some articles may contain affiliate links, which support the site at no cost to you.</footer>
+
+</body>
+</html>
