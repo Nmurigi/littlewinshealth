@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diabetes Guides — Little Wins Health</title>
+<title>Diabetes Guides | Little Wins Health</title>
+<meta name="description" content="Practical, well-sourced diabetes guides on blood sugar, daily habits, mental health, and the difference between type 1 and type 2. Written in everyday language.">
 <style>
   :root{
     --green:#2E5941;--green-deep:#1E3C2C;--cream:#FBFAF5;--apricot:#F2A65A;
@@ -30,9 +31,9 @@
   .cat-head p{color:var(--mute);max-width:60ch;font-size:1.02rem;}
 
   /* TOPIC FILTERS */
-  .filters{max-width:1080px;margin:0 auto;padding:22px 5% 8px;display:flex;gap:10px;flex-wrap:wrap;}
-  .chip{font-family:'Segoe UI',sans-serif;font-size:.83rem;font-weight:600;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;}
-  .chip:hover{border-color:var(--green);}
+  .filters{max-width:1080px;margin:0 auto;padding:26px 5% 10px;display:flex;gap:12px;flex-wrap:wrap;}
+  .chip{font-family:'Segoe UI',sans-serif;font-size:1rem;font-weight:600;padding:12px 22px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s;}
+  .chip:hover{border-color:var(--green);background:#F3F7F3;}
   .chip.active{background:var(--green);border-color:var(--green);color:#fff;}
 
   /* FEATURED */
@@ -93,13 +94,13 @@
 
 <div class="cat-head">
   <div class="crumb ui"><a href="index.html">Home</a> › Diabetes</div>
-  <h1>Diabetes guides</h1>
-  <p>Practical, plain-language guides for living well with type 2 diabetes and prediabetes — written for real life, always with sources, never a substitute for your care team.</p>
+  <h1>Diabetes Guides</h1>
+  <p>Every guide draws on trusted medical research, clinical recommendations, and the everyday experiences of people living with diabetes. Our goal is to help you better understand your condition, feel more confident asking questions, and make informed decisions alongside your healthcare team.</p>
 </div>
 
 <div class="filters ui">
   <button class="chip active" onclick="filter('all',this)">All</button>
-  <button class="chip" onclick="filter('basics',this)">Understanding the basics</button>
+  <button class="chip" onclick="filter('basics',this)">Understanding diabetes</button>
   <button class="chip" onclick="filter('eating',this)">Eating well</button>
   <button class="chip" onclick="filter('monitoring',this)">Monitoring</button>
   <button class="chip" onclick="filter('daily',this)">Daily life</button>
@@ -109,16 +110,35 @@
 
   <a class="featured" href="diabetes-increasing-us.html">
     <div class="feat-img">
-      <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <polyline points="30,120 95,105 160,70 225,72 280,38" fill="none" stroke="#1E3C2C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="280" cy="38" r="11" fill="#F2A65A" stroke="#1E3C2C" stroke-width="4"/>
+      <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A crowd of simple figures, several highlighted in apricot">
+        <g fill="#2E5941" opacity="0.42">
+          <circle cx="42" cy="66" r="6"/><rect x="35" y="75" width="14" height="16" rx="5"/>
+          <circle cx="106" cy="66" r="6"/><rect x="99" y="75" width="14" height="16" rx="5"/>
+          <circle cx="138" cy="66" r="6"/><rect x="131" y="75" width="14" height="16" rx="5"/>
+          <circle cx="202" cy="66" r="6"/><rect x="195" y="75" width="14" height="16" rx="5"/>
+          <circle cx="234" cy="66" r="6"/><rect x="227" y="75" width="14" height="16" rx="5"/>
+        </g>
+        <g fill="#F2A65A" opacity="0.55">
+          <circle cx="74" cy="66" r="6"/><rect x="67" y="75" width="14" height="16" rx="5"/>
+          <circle cx="170" cy="66" r="6"/><rect x="163" y="75" width="14" height="16" rx="5"/>
+        </g>
+        <g fill="#2E5941">
+          <circle cx="62" cy="96" r="9"/><rect x="51" y="109" width="22" height="23" rx="8"/>
+          <circle cx="146" cy="96" r="9"/><rect x="135" y="109" width="22" height="23" rx="8"/>
+          <circle cx="188" cy="96" r="9"/><rect x="177" y="109" width="22" height="23" rx="8"/>
+        </g>
+        <g fill="#F2A65A">
+          <circle cx="104" cy="96" r="9"/><rect x="93" y="109" width="22" height="23" rx="8"/>
+          <circle cx="230" cy="96" r="9"/><rect x="219" y="109" width="22" height="23" rx="8"/>
+        </g>
+        <rect x="30" y="139" width="220" height="3" rx="1.5" fill="#1E3C2C" opacity="0.25"/>
       </svg>
     </div>
     <div class="feat-body">
       <span class="pill">Featured · New</span>
       <h2>Why Is Diabetes Increasing? Alarming Statistics, Common Causes, Surprising Risk Factors, and Myths Debunked</h2>
-      <p>A complete, plain-English guide: the latest global and US diabetes statistics, what actually causes it, the surprising risk factors, who's most at risk, and the biggest myths debunked.</p>
-      <span class="meta">Understanding the basics · 18 min read · July 2026</span>
+      <p>A complete guide to the latest global and US diabetes statistics, what actually causes it, the surprising risk factors, who's most at risk, and the biggest myths debunked.</p>
+      <span class="meta">Understanding diabetes · 18 min read · July 2026</span>
     </div>
   </a>
 
@@ -127,26 +147,26 @@
       <div class="card-img ci-3">💚</div>
       <div class="card-body">
         <span class="tag">Daily life</span>
-        <h3>Diabetes and mental health: caring for your mind, not just your blood sugar</h3>
-        <p>The emotional side of diabetes is real and common. Understanding distress, depression, anxiety, and burnout, and gentle ways to cope.</p>
-        <span class="meta">9 min read · July 2026</span>
+        <h3>Diabetes and Mental Health: Understanding the Emotional Side of Living With Diabetes</h3>
+        <p>Diabetes distress, depression, anxiety, and burnout are common and often overlooked. The signs to watch for, and when to ask for support.</p>
+        <span class="meta">12 min read · July 2026</span>
       </div>
     </a>
     <a class="card" href="type1-vs-type2-diabetes.html" data-topic="basics">
       <div class="card-img ci-2">⚖️</div>
       <div class="card-body">
-        <span class="tag">Understanding the basics</span>
+        <span class="tag">Understanding diabetes</span>
         <h3>Type 1 vs. type 2 diabetes: what's the difference?</h3>
-        <p>Both raise blood sugar, but the causes and treatments differ. A clear, plain-English side-by-side comparison.</p>
+        <p>Both raise blood sugar, but the causes and treatments differ. A clear side-by-side comparison in everyday language.</p>
         <span class="meta">7 min read · July 2026</span>
       </div>
     </a>
     <a class="card" href="how-diabetes-happens.html" data-topic="basics">
       <div class="card-img ci-1">🫀</div>
       <div class="card-body">
-        <span class="tag">Understanding the basics</span>
+        <span class="tag">Understanding diabetes</span>
         <h3>What actually happens in your body when you have diabetes</h3>
-        <p>Glucose, insulin, and what changes in type 1 and type 2 — explained plainly, so the advice finally makes sense.</p>
+        <p>Glucose, insulin, and what changes in type 1 and type 2, explained clearly so the advice finally makes sense.</p>
         <span class="meta">8 min read · July 2026</span>
       </div>
     </a>
@@ -155,7 +175,7 @@
       <div class="card-body">
         <span class="tag">Eating well</span>
         <h3>Grocery shopping with type 2 diabetes: a realistic starter list</h3>
-        <p>What to actually put in the cart — budget-friendly swaps and label-reading shortcuts.</p>
+        <p>What to actually put in the cart, with budget-friendly swaps and label-reading shortcuts.</p>
         <span class="meta">Coming soon</span>
       </div>
     </a>
@@ -164,7 +184,7 @@
       <div class="card-body">
         <span class="tag">Monitoring</span>
         <h3>Home glucose monitors compared: what matters and what doesn't</h3>
-        <p>An honest look at meters and CGMs — accuracy, cost per strip, and features worth paying for.</p>
+        <p>An honest look at meters and CGMs, covering accuracy, cost per strip, and features worth paying for.</p>
         <span class="meta">Coming soon</span>
       </div>
     </a>
@@ -173,16 +193,16 @@
       <div class="card-body">
         <span class="tag">Daily life</span>
         <h3>The 10-minute after-dinner walk: why it helps and how to stick with it</h3>
-        <p>One of the simplest habits with real evidence behind it — plus tricks for making it automatic.</p>
+        <p>One of the simplest habits with real evidence behind it, plus tricks for making it automatic.</p>
         <span class="meta">Coming soon</span>
       </div>
     </a>
     <a class="card" href="#" data-topic="basics">
       <div class="card-img ci-1">🩺</div>
       <div class="card-body">
-        <span class="tag">Understanding the basics</span>
+        <span class="tag">Understanding diabetes</span>
         <h3>Prediabetes: what it means and what to do first</h3>
-        <p>Millions have it and don't know. Caught early, it can often be turned around — here's how.</p>
+        <p>Millions have it and don't know. Caught early, it can often be turned around, and here's how.</p>
         <span class="meta">Coming soon</span>
       </div>
     </a>
@@ -198,9 +218,9 @@
     <a class="card" href="#" data-topic="basics">
       <div class="card-img ci-3">💬</div>
       <div class="card-body">
-        <span class="tag">Understanding the basics</span>
+        <span class="tag">Understanding diabetes</span>
         <h3>What to ask your doctor at your first diabetes appointment</h3>
-        <p>The questions that matter most — bring this list with you.</p>
+        <p>The questions that matter most. Bring this list with you.</p>
         <span class="meta">Coming soon</span>
       </div>
     </a>
