@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nmurigi.github.io/littlewinshealth/sitemap.xml
