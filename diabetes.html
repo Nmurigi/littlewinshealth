@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diabetes Guides | Little Wins Health</title>
+<meta name="description" content="Practical, well-sourced diabetes guides on blood sugar, daily habits, mental health, and the difference between type 1 and type 2. Written in everyday language.">
+<link rel="canonical" href="https://littlewinshealth.com/diabetes.html">
+<style>
+  :root{
+    --green:#2E5941;--green-deep:#1E3C2C;--cream:#FBFAF5;--apricot:#F2A65A;
+    --plum:#5B3A54;--ink:#26302B;--mute:#6B7A72;--line:#E4E6DF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{font-size:17px;}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink);line-height:1.65;}
+  .ui{font-family:'Segoe UI',system-ui,sans-serif;}
+
+  nav{background:var(--cream);border-bottom:1px solid var(--line);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:40;}
+  .brand{font-size:1.35rem;font-weight:700;color:var(--green-deep);text-decoration:none;font-family:Georgia,serif;}
+  .brand span{color:var(--apricot);}
+  .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap;}
+  .nav-links a{text-decoration:none;color:var(--ink);font-size:.9rem;}
+  .nav-links a:hover{color:var(--green);text-decoration:underline;}
+  .nav-links a.active{color:var(--green);font-weight:700;border-bottom:2px solid var(--apricot);padding-bottom:2px;}
+
+  /* CATEGORY HEADER */
+  .cat-head{max-width:1080px;margin:0 auto;padding:48px 5% 8px;}
+  .crumb{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:var(--mute);margin-bottom:14px;}
+  .crumb a{color:var(--green);text-decoration:none;}
+  .cat-head h1{font-size:clamp(1.9rem,4vw,2.6rem);color:var(--green-deep);margin-bottom:10px;}
+  .cat-head p{color:var(--mute);max-width:60ch;font-size:1.02rem;}
+
+  /* TOPIC FILTERS */
+  .filters{max-width:1080px;margin:0 auto;padding:26px 5% 10px;display:flex;gap:12px;flex-wrap:wrap;}
+  .chip{font-family:'Segoe UI',sans-serif;font-size:1rem;font-weight:600;padding:12px 22px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s;}
+  .chip:hover{border-color:var(--green);background:#F3F7F3;}
+  .chip.active{background:var(--green);border-color:var(--green);color:#fff;}
+
+  /* FEATURED */
+  .wrap{max-width:1080px;margin:0 auto;padding:26px 5% 64px;}
+  .featured{display:grid;grid-template-columns:1.1fr .9fr;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:34px;text-decoration:none;color:var(--ink);}
+  .featured:hover h2{text-decoration:underline;}
+  .feat-img{background:linear-gradient(160deg,#DCE8DF,#8FAE97);min-height:230px;display:flex;align-items:center;justify-content:center;}
+  .feat-img svg{width:70%;height:auto;}
+  .feat-body{padding:30px;}
+  .pill{font-family:'Segoe UI',sans-serif;display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:#FBF3E7;color:#9A6A22;padding:4px 12px;border-radius:999px;margin-bottom:12px;}
+  .featured h2{font-size:1.5rem;color:var(--green-deep);line-height:1.3;margin-bottom:10px;}
+  .featured p{color:var(--mute);font-size:.98rem;margin-bottom:14px;}
+  .meta{font-family:'Segoe UI',sans-serif;font-size:.78rem;color:var(--mute);}
+
+  /* ARTICLE GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s;}
+  .card:hover,.card:focus{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,60,44,.1);}
+  .card:hover h3{text-decoration:underline;}
+  .card-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;}
+  .ci-1{background:linear-gradient(135deg,#EDF3EE,#CFE0D3);}
+  .ci-2{background:linear-gradient(135deg,#FBF3E7,#F4D9B4);}
+  .ci-3{background:linear-gradient(135deg,#F0E9EF,#D9C6D6);}
+  .card-body{padding:20px;display:flex;flex-direction:column;gap:9px;flex:1;}
+  .tag{font-family:'Segoe UI',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--apricot);}
+  .card h3{font-size:1.08rem;color:var(--green-deep);line-height:1.35;}
+  .card p{font-family:Georgia,serif;font-size:.9rem;color:var(--mute);flex:1;}
+
+  /* LOAD MORE + NEWSLETTER */
+  .more{display:block;margin:36px auto 0;background:transparent;border:1.5px solid var(--green);color:var(--green);font-family:'Segoe UI',sans-serif;font-weight:700;font-size:.92rem;padding:12px 30px;border-radius:999px;cursor:pointer;}
+  .more:hover{background:var(--green);color:#fff;}
+  .news{background:var(--green-deep);color:#fff;}
+  .news .inner{max-width:1080px;margin:0 auto;padding:44px 5%;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;}
+  .news h2{color:#fff;font-size:1.6rem;margin-bottom:8px;}
+  .news p{color:#BFD2C6;font-size:.95rem;}
+  .news form{display:flex;gap:10px;flex-wrap:wrap;}
+  .news input{flex:1;min-width:200px;padding:13px 16px;border-radius:999px;border:none;font-size:.95rem;font-family:'Segoe UI',sans-serif;}
+  .news input:focus{outline:3px solid var(--apricot);}
+  .news button{background:var(--apricot);color:var(--green-deep);border:none;padding:13px 26px;border-radius:999px;font-weight:700;font-family:'Segoe UI',sans-serif;cursor:pointer;}
+  .news button:hover{background:#E09540;}
+  footer{background:#fff;border-top:1px solid var(--line);padding:22px 5%;text-align:center;font-family:'Segoe UI',sans-serif;font-size:.8rem;color:var(--mute);}
+
+  @media(max-width:760px){.featured{grid-template-columns:1fr;}.news .inner{grid-template-columns:1fr;}}
+  .nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap;align-items:center;}
+  .nav-links a{text-decoration:none;color:var(--ink);font-size:.9rem;font-family:'Segoe UI',sans-serif;font-weight:600;}
+  .nav-links a:hover,.nav-links a:focus{color:var(--green);text-decoration:underline;}
+  .nav-links .pill-group{display:flex;gap:10px;flex-wrap:wrap;}
+  .nav-links a.section{background:#EAF1EC;color:var(--green-deep);font-weight:600;padding:6px 14px;border-radius:999px;}
+  .nav-links a.section:hover,.nav-links a.section:focus{background:var(--green);color:#fff;text-decoration:none;}
+  footer{background:#fff;border-top:1px solid var(--line);padding:34px 5% 30px;text-align:center;font-family:'Segoe UI',sans-serif;color:var(--mute);}
+  .foot-social{display:flex;justify-content:center;gap:16px;margin-bottom:18px;}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#EAF1EC;color:var(--green-deep);transition:background .15s,color .15s;}
+  .foot-social a:hover{background:var(--green);color:#fff;}
+  .foot-social svg{width:19px;height:19px;}
+  .foot-links{font-size:.85rem;margin-bottom:12px;}
+  .foot-links a{color:var(--ink);text-decoration:none;margin:0 9px;}
+  .foot-links a:hover{color:var(--green);text-decoration:underline;}
+  .foot-fine{font-size:.78rem;color:var(--mute);max-width:60ch;margin:0 auto;line-height:1.5;}
+  .feat-emoji{font-size:4.4rem;line-height:1;}
+  .card.cs{cursor:default;}
+  .card.cs:hover{transform:none;box-shadow:none;}
+  .card.cs:hover h3{text-decoration:none;}
+</style>
+</head>
+<body>
+
+<nav class="ui">
+  <a class="brand" href="index.html">Little Wins<span> Health</span></a>
+  <ul class="nav-links">
+    <li><a href="diabetes.html">Diabetes and Blood Sugar</a></li>
+    <li><a href="blood-pressure.html">Blood Pressure</a></li>
+    <li><a href="heart-health.html">Heart Health</a></li>
+    <li><a href="weight-and-health.html">Weight and Health</a></li>
+    <li><a href="mental-health.html">Mental Health</a></li>
+    <li class="pill-group">
+      <a class="section" href="good-to-know.html">Good to Know</a>
+      <a class="section" href="research-and-insights.html">Research and Insights</a>
+      <a class="section" href="medications.html">Medications</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="cat-head">
+  <div class="crumb ui"><a href="index.html">Home</a> › Diabetes</div>
+  <h1>Diabetes Guides</h1>
+  <p>Every guide draws on trusted medical research, clinical recommendations, and the everyday experiences of people living with diabetes. Our goal is to help you better understand your condition, feel more confident asking questions, and make informed decisions alongside your healthcare team.</p>
+</div>
+
+<div class="filters ui">
+  <button class="chip active" onclick="filter('all',this)">All</button>
+  <button class="chip" onclick="filter('basics',this)">Understanding diabetes</button>
+  <button class="chip" onclick="filter('eating',this)">Eating well</button>
+  <button class="chip" onclick="filter('monitoring',this)">Monitoring</button>
+  <button class="chip" onclick="filter('daily',this)">Daily life</button>
+</div>
+
+<main class="wrap">
+
+  <div id="featured-slot"></div>
+
+  <div class="grid" id="grid"></div>
+
+  <button class="more" onclick="alert('More articles coming as you publish them!')">Load more articles</button>
+</main>
+
+<div class="news">
+  <div class="inner">
+    <div>
+      <h2>One Little Win</h2>
+      <p>One email a week: a simple habit to try, a recipe, and one thing worth asking your doctor about. Free, and you can leave anytime.</p>
+    </div>
+    <form class="ui" onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:#fff;font-weight:700\'>You\'re in! Check your inbox to confirm. 🎉</p>';">
+      <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+      <button type="submit">Get the weekly letter</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-social">
+    <a href="#" aria-label="Little Wins Health on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="#" aria-label="Little Wins Health on Pinterest">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.32-.09-.79-.17-2 .03-2.87.19-.8 1.2-5.1 1.2-5.1s-.31-.61-.31-1.52c0-1.42.83-2.48 1.85-2.48.87 0 1.29.66 1.29 1.44 0 .88-.56 2.19-.85 3.41-.24 1.02.51 1.86 1.52 1.86 1.82 0 3.22-1.92 3.22-4.7 0-2.46-1.77-4.18-4.29-4.18-2.92 0-4.64 2.19-4.64 4.46 0 .88.34 1.83.76 2.34.08.1.1.19.07.29-.08.32-.25 1.02-.29 1.16-.05.19-.15.23-.35.14-1.3-.61-2.11-2.5-2.11-4.03 0-3.28 2.38-6.29 6.87-6.29 3.61 0 6.41 2.57 6.41 6.01 0 3.58-2.26 6.47-5.4 6.47-1.05 0-2.04-.55-2.38-1.19l-.65 2.47c-.23.9-.86 2.03-1.29 2.72.97.3 2 .46 3.07.46 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+    </a>
+  </div>
+  <div class="foot-links">
+    <a href="about.html">About</a> ·
+    <a href="editorial-policy.html">Editorial Policy</a> ·
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="foot-fine">© 2026 Little Wins Health. Some articles may contain affiliate links, which support the site at no cost to you. This site is for general information and education and is not a substitute for professional medical advice.</p>
+</footer>
+
+<script>
+/* =====================================================================
+   ARTICLE LIST, the single source of truth.
+   To add an article: copy one block below, fill it in, done.
+   The NEWEST published article (latest date, with a url) becomes the
+   "Featured / New" card automatically. Everything else fills the grid.
+   Leave url as null for a "Coming soon" placeholder (not clickable).
+   topic must be one of: basics | eating | monitoring | daily
+   ===================================================================== */
+const articles = [
+  {
+    title: "What Is a Normal A1C? What Your Number Means",
+    url: "normal-a1c-levels.html",
+    topic: "monitoring", topicLabel: "Your numbers",
+    desc: "A normal A1C is below 5.7%. What your number means in everyday blood sugar, why it doesn't change with age, and when the test can mislead you.",
+    icon: "\uD83C\uDFAF", iconClass: "ci-2",
+    date: "2026-08-25", readTime: "12 min read"
+  },
+  {
+    title: "Normal Blood Sugar Levels by Age: What the Numbers Really Mean",
+    url: "normal-blood-sugar-levels-by-age.html",
+    topic: "monitoring", topicLabel: "Your numbers",
+    desc: "Real fasting, after-meal, and A1C ranges in mg/dL and mmol/L, and why normal barely changes with age.",
+    icon: "\uD83D\uDCCA", iconClass: "ci-1",
+    date: "2026-08-22", readTime: "11 min read"
+  },
+  {
+    title: "Best Blood Glucose Meters: Accuracy, Cost, and What Actually Matters",
+    url: "best-blood-glucose-meters.html",
+    topic: "monitoring", topicLabel: "Monitoring",
+    desc: "An honest look at blood glucose meters, using independent accuracy testing, the real yearly cost of test strips, and which monitor fits your needs.",
+    icon: "\uD83D\uDCDF", iconClass: "ci-2",
+    date: "2026-08-01", readTime: "18 min read"
+  },
+  {
+    title: "Best Blood Ketone Meters for Diabetics: Accuracy, Cost, and When to Test",
+    url: null,
+    topic: "monitoring", topicLabel: "Monitoring",
+    desc: "When to test for ketones, how blood, urine, and breath compare, and which meters are accurate. In progress.",
+    icon: "\uD83E\uDE78", iconClass: "ci-2",
+    date: "2026-08-20", readTime: "Coming soon"
+  },
+  {
+    title: "Why Is Diabetes Increasing? Alarming Statistics, Common Causes, Surprising Risk Factors, and Myths Debunked",
+    url: "diabetes-increasing-us.html",
+    topic: "basics", topicLabel: "Understanding diabetes",
+    desc: "A complete guide to the latest global and US diabetes statistics, what actually causes it, the surprising risk factors, and the biggest myths debunked.",
+    icon: "\uD83D\uDCC8", iconClass: "ci-1",
+    date: "2026-07-15", readTime: "18 min read"
+  },
+  {
+    title: "Diabetes and Mental Health: Understanding the Emotional Side of Living With Diabetes",
+    url: "diabetes-and-mental-health.html",
+    topic: "daily", topicLabel: "Daily life",
+    desc: "Diabetes distress, depression, anxiety, and burnout are common and often overlooked. The signs to watch for, and when to ask for support.",
+    icon: "\uD83D\uDC9A", iconClass: "ci-3",
+    date: "2026-07-10", readTime: "12 min read"
+  },
+  {
+    title: "Type 1 vs. Type 2 Diabetes: What's the Difference?",
+    url: "type1-vs-type2-diabetes.html",
+    topic: "basics", topicLabel: "Understanding diabetes",
+    desc: "Both raise blood sugar, but the causes and treatments differ. A clear side-by-side comparison in everyday language.",
+    icon: "\u2696\uFE0F", iconClass: "ci-2",
+    date: "2026-07-08", readTime: "7 min read"
+  },
+  {
+    title: "What Actually Happens in Your Body When You Have Diabetes",
+    url: "how-diabetes-happens.html",
+    topic: "basics", topicLabel: "Understanding diabetes",
+    desc: "Glucose, insulin, and what changes in type 1 and type 2, explained clearly so the advice finally makes sense.",
+    icon: "\uD83E\uDEC0", iconClass: "ci-1",
+    date: "2026-07-05", readTime: "8 min read"
+  },
+  {
+    title: "Grocery Shopping With Type 2 Diabetes: A Realistic Starter List",
+    url: null, topic: "eating", topicLabel: "Eating well",
+    desc: "What to actually put in the cart, with budget-friendly swaps and label-reading shortcuts.",
+    icon: "\uD83D\uDED2", iconClass: "ci-1", date: "", readTime: "Coming soon"
+  },
+  {
+    title: "The 10-Minute After-Dinner Walk: Why It Helps and How to Stick With It",
+    url: null, topic: "daily", topicLabel: "Daily life",
+    desc: "One of the simplest habits with real evidence behind it, plus tricks for making it automatic.",
+    icon: "\uD83D\uDEB6", iconClass: "ci-3", date: "", readTime: "Coming soon"
+  },
+  {
+    title: "Prediabetes: What It Means and What to Do First",
+    url: null, topic: "basics", topicLabel: "Understanding diabetes",
+    desc: "Millions have it and don't know. Caught early, it can often be turned around, and here's how.",
+    icon: "\uD83E\uDE7A", iconClass: "ci-1", date: "", readTime: "Coming soon"
+  },
+  {
+    title: "Quick Diabetes-Friendly Breakfasts for Busy Mornings",
+    url: null, topic: "eating", topicLabel: "Eating well",
+    desc: "Fast breakfasts you can make in under ten minutes, no special ingredients.",
+    icon: "\uD83C\uDF73", iconClass: "ci-2", date: "", readTime: "Coming soon"
+  },
+  {
+    title: "What to Ask Your Doctor at Your First Diabetes Appointment",
+    url: null, topic: "basics", topicLabel: "Understanding diabetes",
+    desc: "The questions that count most. Bring this list with you.",
+    icon: "\uD83D\uDCAC", iconClass: "ci-3", date: "", readTime: "Coming soon"
+  }
+];
+
+function monthYear(d){
+  if(!d) return "";
+  const p=d.split("-"); const y=p[0]; const m=parseInt(p[1],10);
+  const names=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  return names[m-1]+" "+y;
+}
+function featuredHTML(a){
+  return '<a class="featured" href="'+a.url+'">'
+    +'<div class="feat-img"><span class="feat-emoji">'+a.icon+'</span></div>'
+    +'<div class="feat-body">'
+    +'<span class="pill">Featured &middot; New</span>'
+    +'<h2>'+a.title+'</h2>'
+    +'<p>'+a.desc+'</p>'
+    +'<span class="meta">'+a.topicLabel+' &middot; '+a.readTime+' &middot; '+monthYear(a.date)+'</span>'
+    +'</div></a>';
+}
+function cardHTML(a){
+  const meta = a.url ? (a.readTime+' &middot; '+monthYear(a.date)) : 'Coming soon';
+  const inner = '<div class="card-img '+a.iconClass+'">'+a.icon+'</div>'
+    +'<div class="card-body">'
+    +'<span class="tag">'+a.topicLabel+'</span>'
+    +'<h3>'+a.title+'</h3>'
+    +'<p>'+a.desc+'</p>'
+    +'<span class="meta">'+meta+'</span>'
+    +'</div>';
+  return a.url
+    ? '<a class="card" href="'+a.url+'" data-topic="'+a.topic+'">'+inner+'</a>'
+    : '<div class="card cs" data-topic="'+a.topic+'">'+inner+'</div>';
+}
+function render(){
+  const published = articles.filter(a=>a.url).slice().sort((x,y)=>(y.date||'').localeCompare(x.date||''));
+  const featured = published[0] || null;
+  const rest = articles.filter(a=>a!==featured).slice().sort((x,y)=>{
+    if(!!x.url !== !!y.url) return x.url ? -1 : 1;
+    return (y.date||'').localeCompare(x.date||'');
+  });
+  document.getElementById('featured-slot').innerHTML = featured ? featuredHTML(featured) : '';
+  document.getElementById('grid').innerHTML = rest.map(cardHTML).join('');
+}
+function filter(topic, btn){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#grid .card').forEach(card=>{
+    card.style.display = (topic==='all' || card.dataset.topic===topic) ? '' : 'none';
+  });
+}
+render();
+</script>
+
+</body>
+</html>
