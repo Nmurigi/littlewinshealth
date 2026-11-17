@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Little Wins Health | Little Wins Health</title>
+<meta name="description" content="Little Wins Health turns trusted medical research into plain-language guides and small daily habits for living with diabetes, blood pressure and other long-term conditions.">
+<link rel="canonical" href="https://littlewinshealth.com/about.html">
+<style>
+  :root{
+    --green:#2E5941;      /* garden green: food and daily habits, not hospitals */
+    --green-deep:#1E3C2C;
+    --cream:#FBFAF5;
+    --apricot:#F2A65A;    /* warm accent: energy, mealtimes */
+    --plum:#5B3A54;       /* secondary for categories */
+    --ink:#26302B;
+    --mute:#3A443E;
+    --line:#E4E6DF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{font-size:17px;}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink);line-height:1.65;}
+  .ui{font-family:'Segoe UI',system-ui,sans-serif;}
+
+  /* NAV */
+  nav{background:var(--cream);border-bottom:1px solid var(--line);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px;position:sticky;top:0;z-index:40;}
+  .brand{font-size:1.35rem;font-weight:700;color:var(--green-deep);text-decoration:none;}
+  .brand span{color:var(--apricot);}
+  .nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap;align-items:center;}
+  .nav-links .pill-group{display:flex;gap:10px;flex-wrap:wrap;}
+  .nav-links a{text-decoration:none;color:var(--ink);font-size:.9rem;font-family:'Segoe UI',sans-serif;}
+  .nav-links a:hover,.nav-links a:focus{color:var(--green);text-decoration:underline;}
+  .nav-links a{font-weight:600;}
+  .nav-links a.section{background:#EAF1EC;color:var(--green-deep);font-weight:600;padding:6px 14px;border-radius:999px;}
+  .nav-links a.section:hover,.nav-links a.section:focus{background:var(--green);color:#fff;text-decoration:none;}
+
+  /* HERO */
+  .hero{max-width:1080px;margin:0 auto;padding:64px 5% 48px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;}
+  .kicker{font-family:'Segoe UI',sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--apricot);font-weight:700;margin-bottom:14px;}
+  .hero h1{font-size:clamp(2rem,4.4vw,3rem);line-height:1.15;color:var(--green-deep);font-weight:700;margin-bottom:16px;}
+    .hero p{font-size:1.08rem;color:var(--ink);max-width:46ch;margin-bottom:24px;}
+  .hero p.tagline{font-family:Georgia,serif;font-style:italic;font-size:1.28rem;color:var(--green);max-width:none;margin:-6px 0 26px;}
+  .btn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;padding:13px 26px;border-radius:999px;font-family:'Segoe UI',sans-serif;font-weight:700;font-size:.95rem;border:none;cursor:pointer;}
+  .btn:hover,.btn:focus{background:var(--green-deep);}
+  .btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green);margin-left:10px;}
+  .btn.ghost:hover{background:var(--green);color:#fff;}
+
+  /* SIGNATURE: the plate */
+  .plate-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;text-align:center;box-shadow:0 12px 34px rgba(30,60,44,.08);}
+  .plate{width:190px;height:190px;border-radius:50%;margin:0 auto 14px;position:relative;background:conic-gradient(var(--green) 0 50%,var(--apricot) 50% 75%,var(--plum) 75% 100%);border:8px solid #fff;box-shadow:0 0 0 1px var(--line);}
+  .plate-card h3{color:var(--green-deep);font-size:1.05rem;margin-bottom:8px;}
+  .plate-key{list-style:none;font-family:'Segoe UI',sans-serif;font-size:.82rem;color:var(--mute);display:grid;gap:4px;text-align:left;max-width:230px;margin:0 auto;}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;}
+
+  /* CATEGORIES */
+  .band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 5%;}
+  .wrap h2{color:var(--green-deep);font-size:1.7rem;margin-bottom:6px;}
+  .wrap .sub{color:var(--mute);margin-bottom:30px;font-size:.98rem;}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+  .cat{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--cream);text-decoration:none;color:var(--ink);display:block;}
+  .cat:hover,.cat:focus{border-color:var(--green);}
+  .cat h3{font-size:1rem;color:var(--green-deep);margin-bottom:4px;}
+  .cat p{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:var(--mute);}
+  .tag{font-family:'Segoe UI',sans-serif;display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:10px;}
+  .tag.live{background:#E4F0E8;color:var(--green-deep);}
+  .tag.soon{background:#F1EDE4;color:#8A7B55;}
+
+  /* ARTICLES */
+  .art-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+  article.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+  .card-top{height:8px;background:var(--green);}
+  article.card:nth-child(2) .card-top{background:var(--apricot);}
+  article.card:nth-child(3) .card-top{background:var(--plum);}
+  .card-body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .card-body .cat-label{font-family:'Segoe UI',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--apricot);}
+  .card-body h3{font-size:1.12rem;color:var(--green-deep);line-height:1.35;}
+  .card-body p{font-size:.92rem;color:var(--mute);flex:1;}
+  .card-body a{font-family:'Segoe UI',sans-serif;font-size:.88rem;font-weight:700;color:#2563EB;text-decoration:underline;text-underline-offset:2px;}
+  .card-body a:hover{text-decoration:underline;}
+
+  /* NEWSLETTER */
+  .news{background:var(--green-deep);color:#fff;}
+  .news .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+  .news h2{color:#fff;}
+  .news p{color:#BFD2C6;font-size:.95rem;}
+  .news form{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+  .news input{flex:1;min-width:200px;padding:13px 16px;border-radius:999px;border:none;font-size:.95rem;font-family:'Segoe UI',sans-serif;}
+  .news input:focus{outline:3px solid var(--apricot);}
+  .news .btn{background:var(--apricot);color:var(--green-deep);}
+  .news .btn:hover{background:#E09540;}
+  .news .fine{font-size:.75rem;color:#8FA898;margin-top:10px;font-family:'Segoe UI',sans-serif;}
+
+  /* DISCLAIMER + FOOTER */
+  .disclaim{max-width:1080px;margin:0 auto;padding:26px 5%;font-family:'Segoe UI',sans-serif;font-size:.8rem;color:var(--mute);border-top:1px solid var(--line);}
+  footer{background:#fff;border-top:1px solid var(--line);padding:34px 5% 30px;text-align:center;font-family:'Segoe UI',sans-serif;color:var(--mute);}
+  .foot-social{display:flex;justify-content:center;gap:16px;margin-bottom:18px;}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#EAF1EC;color:var(--green-deep);transition:background .15s,color .15s;}
+  .foot-social a:hover{background:var(--green);color:#fff;}
+  .foot-social svg{width:19px;height:19px;}
+  .foot-links{font-size:.85rem;margin-bottom:12px;}
+  .foot-links a{color:var(--ink);text-decoration:none;margin:0 9px;}
+  .foot-links a:hover{color:var(--green);text-decoration:underline;}
+  .foot-fine{font-size:.78rem;color:var(--mute);max-width:60ch;margin:0 auto;line-height:1.5;}
+
+  @media(max-width:800px){
+    .hero{grid-template-columns:1fr;padding-top:44px;}
+    .news .wrap{grid-template-columns:1fr;}
+  }
+</style>
+<style>
+  .page-wrap{max-width:760px;margin:0 auto;padding:54px 5% 40px;}
+  .page-wrap .kicker{font-family:'Segoe UI',sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--apricot);font-weight:700;margin-bottom:14px;}
+  .page-wrap h1{font-size:2.15rem;line-height:1.18;color:var(--green-deep);margin-bottom:10px;}
+  .page-wrap .tagline{font-family:Georgia,serif;font-style:italic;font-size:1.3rem;color:var(--green);margin-bottom:32px;}
+  .page-wrap h2{font-size:1.4rem;color:var(--green-deep);margin:38px 0 14px;}
+  .page-wrap p{font-size:1.08rem;color:var(--ink);line-height:1.75;margin-bottom:22px;}
+  .page-wrap a.inline{color:#2563EB;text-decoration:underline;text-underline-offset:2px;}
+</style>
+<style id="nav-layout">
+  /* Header: logo + section pills on top row, condition links below */
+  nav.ui{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;column-gap:28px;row-gap:12px;}
+  nav.ui .nav-links{display:contents;}
+  nav.ui .nav-links > li{display:block;order:2;}
+  nav.ui .brand{order:0;font-family:Georgia,serif;}
+  nav.ui .nav-links > li.pill-group{order:1;margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;}
+  nav.ui::after{content:"";flex-basis:100%;height:0;order:1;}
+  @media(max-width:800px){nav.ui .nav-links > li.pill-group{margin-left:0;}}
+</style>
+<style>
+  .about-quote{background:#EDF3EE;border-left:4px solid var(--apricot);border-radius:0 14px 14px 0;padding:22px 26px;margin:18px 0 30px;}
+  .about-quote p{font-family:Georgia,serif;font-style:italic;font-size:1.22rem;line-height:1.6;color:var(--green-deep);margin:0;}
+</style>
+</head>
+<body>
+<nav class="ui">
+  <a class="brand" href="index.html">Little Wins<span> Health</span></a>
+  <ul class="nav-links">
+    <li><a href="diabetes.html">Diabetes and Blood Sugar</a></li>
+    <li><a href="blood-pressure.html">Blood Pressure</a></li>
+    <li><a href="heart-health.html">Heart Health</a></li>
+    <li><a href="weight-and-health.html">Weight and Health</a></li>
+    <li><a href="mental-health.html">Mental Health</a></li>
+    <li class="pill-group">
+      <a class="section" href="good-to-know.html">Good to Know</a>
+      <a class="section" href="research-and-insights.html">Research and Insights</a>
+      <a class="section" href="medications.html">Medications</a>
+      <a class="section" href="medical-cannabis.html">Medical Cannabis</a>
+    </li>
+  </ul>
+</nav>
+
+<main class="page-wrap">
+  <div class="kicker">About Us</div>
+  <h1>About Little Wins Health</h1>
+  <blockquote class="about-quote"><p>Grand health goals are inspiring, but it's the ordinary, unglamorous daily habits that add up to a life that feels a little lighter.</p></blockquote>
+
+  <p>Little Wins Health is a health education website for people living with long-term conditions like diabetes and high blood pressure. We take trusted medical research and turn it into clear, practical guides you can use in everyday life.</p>
+
+  <p>We started the site because so much health advice is either too technical to follow or too vague to act on. People are told to "eat better" or "watch their numbers" without anyone explaining what that means on a Tuesday night after work.</p>
+
+  <h2>Why we focus on little wins</h2>
+  <p>Big changes are hard to keep up. Small ones are easier to start, and they tend to stick. A ten-minute walk after dinner, a better breakfast or one good question at your next appointment can all make a real difference over time.</p>
+
+  <p>That's the idea behind every guide on this site. We explain what's going on in your body, then show you small, realistic steps that help.</p>
+
+  <h2>What you'll find on Little Wins Health</h2>
+  <p>Our guides are organized by condition and topic, so you can find what you need quickly:</p>
+  <ul>
+    <li><strong>Diabetes and Blood Sugar:</strong> understanding your numbers, eating well, monitoring and daily life</li>
+    <li><strong>Blood Pressure:</strong> what your readings mean and how to lower them at home</li>
+    <li><strong>Heart Health, Weight and Health, and Mental Health:</strong> everyday habits for your heart, your weight and your wellbeing</li>
+    <li><strong>Medications:</strong> plain-language guides to common medicines and the latest safety news</li>
+    <li><strong>Medical Cannabis:</strong> what the research does and doesn't show</li>
+    <li><strong>Good to Know and Research and Insights:</strong> useful health facts and what new studies mean for you</li>
+  </ul>
+
+  <h2>How we research and write our guides</h2>
+  <p>Every guide is built on published research and guidance from trusted health authorities, such as the CDC, NIH, WHO, NHS, FDA and the American Diabetes Association. We link to our sources so you can check the evidence yourself.</p>
+
+  <p>We write in plain language and avoid hype, miracle cures and scare tactics. When the evidence is uncertain, we say so. You can read more about our standards in our <a href="editorial-policy.html">editorial policy</a>.</p>
+
+  <h2>What Little Wins Health is not</h2>
+  <p>We're a health education website, not a medical service. Our content is not written by medical professionals and isn't a substitute for diagnosis, treatment or advice from your own doctor.</p>
+
+  <p>Your care team knows you in a way a website never can. We aim to help you understand your health and have better conversations with them, never to replace them.</p>
+
+  <h2>Get in touch</h2>
+  <p>We'd love to hear from you, whether you have a question, a topic you'd like us to cover or a correction. Email us at <a href="mailto:contact@littlewinshealth.com">contact@littlewinshealth.com</a> or use our <a href="contact.html">contact page</a>.</p>
+
+  <p>You can also join One Little Win, our free weekly email with one simple habit, one recipe and one question worth asking your doctor.</p>
+</main>
+
+<footer>
+  <div class="foot-social">
+    <a href="#" aria-label="Little Wins Health on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="#" aria-label="Little Wins Health on Pinterest">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.32-.09-.79-.17-2 .03-2.87.19-.8 1.2-5.1 1.2-5.1s-.31-.61-.31-1.52c0-1.42.83-2.48 1.85-2.48.87 0 1.29.66 1.29 1.44 0 .88-.56 2.19-.85 3.41-.24 1.02.51 1.86 1.52 1.86 1.82 0 3.22-1.92 3.22-4.7 0-2.46-1.77-4.18-4.29-4.18-2.92 0-4.64 2.19-4.64 4.46 0 .88.34 1.83.76 2.34.08.1.1.19.07.29-.08.32-.25 1.02-.29 1.16-.05.19-.15.23-.35.14-1.3-.61-2.11-2.5-2.11-4.03 0-3.28 2.38-6.29 6.87-6.29 3.61 0 6.41 2.57 6.41 6.01 0 3.58-2.26 6.47-5.4 6.47-1.05 0-2.04-.55-2.38-1.19l-.65 2.47c-.23.9-.86 2.03-1.29 2.72.97.3 2 .46 3.07.46 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+    </a>
+  </div>
+  <div class="foot-links">
+    <a href="about.html">About</a> ·
+    <a href="editorial-policy.html">Editorial Policy</a> ·
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="foot-fine">© 2026 Little Wins Health. Some articles may contain affiliate links, which support the site at no cost to you. This site is for general information and education and is not a substitute for professional medical advice.</p>
+</footer>
+</body>
+</html>
