@@ -117,20 +117,31 @@
   .page-wrap p{font-size:1.08rem;color:var(--ink);line-height:1.75;margin-bottom:22px;}
   .page-wrap a.inline{color:#2563EB;text-decoration:underline;text-underline-offset:2px;}
 </style>
+<style id="nav-layout">
+  /* Header: logo + section pills on top row, condition links below */
+  nav.ui{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;column-gap:28px;row-gap:12px;}
+  nav.ui .nav-links{display:contents;}
+  nav.ui .nav-links > li{display:block;order:2;}
+  nav.ui .brand{order:0;font-family:Georgia,serif;}
+  nav.ui .nav-links > li.pill-group{order:1;margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;}
+  nav.ui::after{content:"";flex-basis:100%;height:0;order:1;}
+  @media(max-width:800px){nav.ui .nav-links > li.pill-group{margin-left:0;}}
+</style>
 </head>
 <body>
 <nav class="ui">
   <a class="brand" href="index.html">Little Wins<span> Health</span></a>
   <ul class="nav-links">
-    <li><a href="diabetes.html">Diabetes</a></li>
-    <li><a href="#categories">Blood Pressure</a></li>
-    <li><a href="#categories">Heart Health</a></li>
-    <li><a href="#categories">Weight and Health</a></li>
-    <li><a href="#categories">Mental Health</a></li>
+    <li><a href="diabetes.html">Diabetes and Blood Sugar</a></li>
+    <li><a href="blood-pressure.html">Blood Pressure</a></li>
+    <li><a href="heart-health.html">Heart Health</a></li>
+    <li><a href="weight-and-health.html">Weight and Health</a></li>
+    <li><a href="mental-health.html">Mental Health</a></li>
     <li class="pill-group">
-      <a class="section" href="#">Good to Know</a>
-      <a class="section" href="#">Research and Insights</a>
-      <a class="section" href="#">Medications</a>
+      <a class="section" href="good-to-know.html">Good to Know</a>
+      <a class="section" href="research-and-insights.html">Research and Insights</a>
+      <a class="section" href="medications.html">Medications</a>
+      <a class="section" href="medical-cannabis.html">Medical Cannabis</a>
     </li>
   </ul>
 </nav>
