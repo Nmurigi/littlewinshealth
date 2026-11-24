@@ -179,7 +179,16 @@
 <section class="wrap" id="latest">
   <h2>Latest Guides</h2>
   <p class="sub">Practical, well-sourced guides made to support the advice from your care team, never to replace it.</p>
-  <div class="art-grid">
+  <div class="art-grid" id="latest-grid">
+    <article class="card">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <span class="cat-label">Medicines and treatments</span>
+        <h3>New Hormone Therapy for Early Breast Cancer: What the FDA's Wilserdly Approval Means for You</h3>
+        <p>The FDA approved Wilserdly, the first new hormone therapy for early breast cancer in 20 years. Who it's for, what the lidERA trial found and what to ask.</p>
+        <a href="new-hormone-therapy-early-breast-cancer.html">Read the guide →</a>
+      </div>
+    </article>
     <article class="card">
       <div class="card-top"></div>
       <div class="card-body">
@@ -205,15 +214,6 @@
         <h3>Keeping Weight Off After a GLP-1: What Happens When You Stop or Switch</h3>
         <p>A 2-year study of 20,486 adults compared stopping, staying on and switching semaglutide or tirzepatide. Which options kept the most weight off.</p>
         <a href="keeping-weight-off-after-glp-1.html">Read the guide →</a>
-      </div>
-    </article>
-    <article class="card">
-      <div class="card-top"></div>
-      <div class="card-body">
-        <span class="cat-label">Medical cannabis research</span>
-        <h3>Medical Cannabis for Chronic Pain: What Two Big 2026 Studies Found</h3>
-        <p>Two large 2026 studies tracked thousands of chronic pain patients using medical cannabis. What improved, how fast, and what to ask your doctor.</p>
-        <a href="medical-cannabis-chronic-pain-what-studies-show.html">Read the guide →</a>
       </div>
     </article>
   </div>
@@ -254,5 +254,34 @@
   <p class="foot-fine">© 2026 Little Wins Health. Some articles may contain affiliate links, which support the site at no cost to you. This site is for general information and education and is not a substitute for professional medical advice.</p>
 </footer>
 
+<script>
+/* Latest Guides fills itself from the category pages.
+   Add a new article to its category page's articles list and it appears here.
+   The cards written above stay in place if the pages can't be read. */
+(function(){
+  var pages=["diabetes.html","blood-pressure.html","heart-health.html","weight-and-health.html","mental-health.html","good-to-know.html","research-and-insights.html","medications.html","medical-cannabis.html"];
+  var SHOW=4;
+  function grab(text){
+    var m=text.match(/const articles = (\[[\s\S]*?\n\]);/);
+    if(!m) return [];
+    try{ return (new Function("return "+m[1]))(); }catch(e){ return []; }
+  }
+  function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  Promise.all(pages.map(function(p){
+    return fetch(p).then(function(r){ return r.ok?r.text():""; }).then(grab).catch(function(){ return []; });
+  })).then(function(lists){
+    var seen={}, all=[];
+    lists.forEach(function(l){ l.forEach(function(a){ if(a&&a.url&&a.date&&!seen[a.url]){ seen[a.url]=1; all.push(a); } }); });
+    if(all.length<SHOW) return;
+    all.sort(function(x,y){ return y.date.localeCompare(x.date); });
+    document.getElementById("latest-grid").innerHTML=all.slice(0,SHOW).map(function(a){
+      return '<article class="card"><div class="card-top"></div><div class="card-body">'
+        +'<span class="cat-label">'+esc(a.topicLabel)+'</span>'
+        +'<h3>'+esc(a.title)+'</h3><p>'+esc(a.desc)+'</p>'
+        +'<a href="'+esc(a.url)+'">Read the guide \u2192</a></div></article>';
+    }).join("");
+  });
+})();
+</script>
 </body>
 </html>
